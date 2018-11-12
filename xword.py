@@ -12,6 +12,7 @@ def match_words(test_word, words):
         if letter != "?":
             known_letters[test_word.find(letter)] = letter
 
+    matching_words = []
     for dict_word in words:
         if len(dict_word) == len(test_word):
             matching_cases = True
@@ -19,9 +20,9 @@ def match_words(test_word, words):
                 if dict_word[index] != letter:
                     matching_cases = False
             if matching_cases:
-                print (dict_word)
-    # print known_letters
-    # print test_word
+                matching_words.append(dict_word)
+
+    return matching_words
 
 
 def main():
@@ -33,7 +34,7 @@ def main():
     test_word.lower()
 
     # YOUR ADDITIONAL CODE HERE
-    match_words(test_word, words)
+    print(match_words(test_word, words))
     # raise NotImplementedError('Please complete this')
 
 
